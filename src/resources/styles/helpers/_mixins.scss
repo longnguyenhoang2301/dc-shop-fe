@@ -1,0 +1,184 @@
+@mixin css3-prefix($property, $value) {
+    -webkit-#{$property}: #{$value};
+     -khtml-#{$property}: #{$value};
+       -moz-#{$property}: #{$value};
+        -ms-#{$property}: #{$value};
+         -o-#{$property}: #{$value};
+            #{$property}: #{$value};
+  }
+  
+  @mixin css-transition($all, $str, $ease-in-out) {
+    @include css3-prefix('transition', $str);
+  }
+  
+  
+  @mixin background-gradient($startColor, $endColor) {
+      background-color: $startColor;
+      background-image: -webkit-gradient(linear, left top, left bottom, from($startColor), to($endColor));
+      background-image: -webkit-linear-gradient(top, $startColor, $endColor);
+      background-image:    -moz-linear-gradient(top, $startColor, $endColor);
+      background-image:     -ms-linear-gradient(top, $startColor, $endColor);
+      background-image:      -o-linear-gradient(top, $startColor, $endColor);
+      background-image:         linear-gradient(top, $startColor, $endColor);
+      filter:            progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', endColorStr='#{$endColor}');
+  }
+  
+  @mixin background-horizontal($startColor, $endColor) {
+      background-color: $startColor;
+      background-image: -webkit-gradient(linear, left top, right top, from($startColor), to($endColor));
+      background-image: -webkit-linear-gradient(left, $startColor, $endColor);
+      background-image:    -moz-linear-gradient(left, $startColor, $endColor);
+      background-image:     -ms-linear-gradient(left, $startColor, $endColor);
+      background-image:      -o-linear-gradient(left, $startColor, $endColor);
+      background-image:         linear-gradient(left, $startColor, $endColor);
+      filter:            progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', endColorStr='#{$endColor}', gradientType='1');
+  }
+  
+  @mixin background-opacity($color, $opacity) {
+      background: $color;
+      background: rgba($color, $opacity);
+  }
+  
+  @mixin background-images($a, $startColor, $endColor) {
+      background-image: -moz-linear-gradient($a, $startColor, $endColor);
+      background-image: -o-linear-gradient($a, $startColor, $endColor);
+      background-image: -webkit-linear-gradient($a, $startColor, $endColor);
+      background-image: linear-gradient($a, $startColor, $endColor);
+  }
+  @mixin position-overlay($position, $tops, $lefts, $bottoms, $rights) {
+      position: $position; 
+      top: $tops; 
+      left: $lefts; 
+      bottom: $bottoms; 
+      right: $rights;
+  }
+  
+  @mixin border-radius($radius) {
+      @include css3-prefix('border-radius', $radius);
+  }
+  
+  @mixin font-face($fontFamily, $eotFileSrc, $woffFileSrc, $ttfFileSrc, $svgFileSrc, $svgFontID) {
+    font-family: $fontFamily;
+    src: url($eotFileSrc)  format('eot'),
+         url($woffFileSrc) format('woff'),
+         url($ttfFileSrc)  format('truetype'),
+         url($svgFileSrc + $svgFontID) format('svg');
+  }
+  
+  @mixin text-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4)) {
+      text-shadow: $x $y $blur $color;
+  }
+  
+  @mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+      @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+      @content;
+    }
+    @-ms-keyframes #{$animation-name} {
+      @content;
+    }
+    @-o-keyframes #{$animation-name} {
+      @content;
+    }
+    @keyframes #{$animation-name} {
+      @content;
+    }
+  }
+  
+  // Making Shapes
+    
+  @mixin circle($width, $color){
+    width: $width;
+    height: $width;
+    background-color: $color;
+    border-radius: $width/2;
+    background-clip: padding-box;
+  }
+  
+  @mixin triangle($width, $dir, $color){
+    @if $dir == up{
+      width: 0; height: 0;
+      border-left: $width solid transparent;
+      border-right: $width solid transparent;
+      border-bottom: $width solid $color;
+    } @else if $dir == down {
+      width: 0; height: 0;
+      border-left: $width solid transparent;
+      border-right: $width solid transparent;
+      border-top: $width solid $color;
+    }@else if $dir == left {
+      width: 0; height: 0;
+      border-top: $width solid transparent;
+      border-bottom: $width solid transparent;
+      border-right: $width solid $color;
+    }
+    @else if $dir == right {
+      width: 0; height: 0;
+      border-top: $width solid transparent;
+      border-bottom: $width solid transparent;
+      border-left: $width solid $color;
+    }
+  }
+  
+  //Placeholders
+  @mixin input-placeholder {
+      &.placeholder { @content; }
+      &:-moz-placeholder { @content; }
+      &::-moz-placeholder { @content; }
+      &:-ms-input-placeholder { @content; }
+      &::-webkit-input-placeholder { @content; }
+  }
+  
+  //box shadow
+  @mixin box-shadow($top, $left, $blur, $color, $inset:"") {
+    -webkit-box-shadow:$top $left $blur $color #{$inset};
+    -moz-box-shadow:$top $left $blur $color #{$inset};
+    box-shadow:$top $left $blur $color #{$inset};
+  }
+  
+  //transform
+  @mixin transformtxt($x,$y){
+    transform: translateX($x) translateY($y);
+    -webkit-transform: translateX($x) translateY($y);
+    -ms-transform: translateX($x) translateY($y);
+    -o-transform: translateX($x) translateY($y);
+  }
+  
+  @mixin background-size($x){
+    -webkit-background-size: $x;
+    -moz-background-size: $x;
+    -o-background-size: $x;
+    background-size: $x;
+  }
+  
+  //line ccc
+  @mixin border-bottom{
+    border-bottom: 1px solid #cccccc;
+  }
+  
+  //padding
+  @mixin padding-both{
+    padding-left: 4.6875%;
+    padding-right: 4.6875%;
+  }
+  @mixin pdt-20{
+    padding-top: 1.25em;
+    padding-bottom: 1.25em;
+  }
+  @mixin pdt-30{
+    padding-top: 1.875em;
+    padding-bottom: 1.875em;
+  }
+  @mixin pdt-40{
+    padding-top: 2.5em;
+    padding-bottom: 2.5em;
+  }
+  
+  //calc
+  @mixin calc($property, $expression) {
+    #{$property}: -moz-calc(#{$expression});
+    #{$property}: -webkit-calc(#{$expression});
+    #{$property}: calc(#{$expression});
+  }

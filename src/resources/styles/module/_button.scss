@@ -1,0 +1,71 @@
+.btn-payment-request-transfer {
+    border-radius: 4px;
+    background: #17a2b8;
+    color: #ffffff;
+    border: 1px solid #17a2b8;
+  
+    &:hover {
+      background-color: #17a2b8;
+      color: white;
+      border-color: unset;
+    }
+    &:focus {
+      background-color: #17a2b8;
+      color: white;
+    }
+  }
+  
+  .btn-payment-request-back {
+    border-radius: 4px;
+    background: #f5b25b;
+    color: #ffffff;
+    border: 1px solid #f5b25b;
+  
+    &:hover {
+      background-color: #f5b25b;
+      color: white;
+      border-color: unset;
+    }
+    &:focus {
+      background-color: #f5b25b;
+      color: white;
+    }
+  }
+  .btn-payment-request-approve {
+    border-radius: 4px;
+    background: #28a745;
+    color: #ffffff;
+    border: 1px solid #28a745;
+  
+    &:hover {
+      background-color: #23933d;
+      color: white;
+      border-color: unset;
+    }
+    &:focus {
+      background-color: #23933d;
+      color: white;
+    }
+  }
+  
+  .btn-payment-request-delete {
+    border-radius: 4px;
+    background: gray;
+    color: #ffffff;
+    border: 1px solid gray;
+  
+    &:hover {
+      background-color: gray;
+      color: white;
+      border-color: unset;
+    }
+    &:focus {
+      background-color: gray;
+      color: white;
+    }
+  }
+  
+  .float-action{
+    z-index: 100;
+  }
+  

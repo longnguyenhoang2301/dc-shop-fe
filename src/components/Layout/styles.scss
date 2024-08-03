@@ -1,9 +1,10 @@
-
-.ant-layout .ant-layout-sider-trigger {
-    top: 0;
-    bottom: auto;
-}
-
-.ant-layout-sider-children {
-    margin-top: 48px;
+.main-layout {
+    .ant-layout .ant-layout-sider-trigger {
+        top: 0 !important;
+        bottom: auto;
+    }
+    
+    .ant-layout-sider-children {
+        margin-top: 48px !important;
+    }
 }

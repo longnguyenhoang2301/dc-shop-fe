@@ -1,8 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
+import './resources/styles/custom.scss';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { Friend, Table } from './pages';
 import { MainLayout } from './components';
+import Friend from './containers/Friend';
+import Table from './containers/Table';
 
 function App() {
   const router = createBrowserRouter([
@@ -21,7 +23,7 @@ function App() {
   ]);
 
   return (
-    <div className="App">
+    <div id={"app-main"} className="App">
       <RouterProvider router={router} />
     </div>
   );
